@@ -13,7 +13,7 @@ RAIZ = pathlib.Path(__file__).resolve().parent.parent
 VOZ = "es-AR-ElenaNeural"
 
 GUION = {
-    "intro": "¡Hola! Soy Sonri, y te doy la bienvenida a Garden, centro odontológico. "
+    "intro": "¡Hola! Te doy la bienvenida a Garden, centro odontológico. "
              "Acompañame a conocer quiénes somos, cómo trabajamos y hacia dónde vamos.",
     "quienes": "Garden es el centro de odontología más completo del país. "
                "Nuestro propósito es claro: cuidar la sonrisa de nuestros pacientes, "
