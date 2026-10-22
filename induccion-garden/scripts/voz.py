@@ -33,12 +33,18 @@ GUION = {
                       "ortodoncia, implantes, cirugía, odontopediatría, ¡y mucho más!",
     "numeros": "Somos más de cincuenta profesionales y más de sesenta colaboradores, "
                "en treinta y dos consultorios.",
-    "pisos": "Hagamos un recorrido rápido. En planta baja: recepción, diagnóstico y guardia. "
-             "Primer piso: bioimágenes y esterilización. "
-             "Segundo: operatoria, periodoncia, ortodoncia y odontopediatría. "
-             "Tercero: gerencias y la central de atención telefónica. "
-             "Cuarto: prótesis, implantes, cirugía y endodoncia. "
-             "Y en el quinto: laboratorio, digitalización, el SUM y los cambiadores.",
+    "pisos": "Hagamos un recorrido por el edificio. En planta baja están: recepción, diagnóstico, guardia, "
+             "asesoría comercial, el baño para personas con discapacidad y la sala de radiografías periapicales. "
+             "En el primer piso: el departamento de bioimágenes, el laboratorio de esterilización "
+             "y la coordinación de ortodoncia. "
+             "En el segundo: recepción, operatoria dental, periodoncia, ortodoncia y ortopedia, odontopediatría, "
+             "la isla de asistentes, gerencia clínica, circulantes y otra sala de radiografías periapicales. "
+             "En el tercero: recepción, gerencia general, las gerencias operativa, de capital humano y de finanzas, "
+             "y la central de atención telefónica. "
+             "En el cuarto: recepción, prótesis, implantes, cirugía bucal, endodoncia, la isla de asistentes, "
+             "la sala de escáner y otra sala de radiografías periapicales. "
+             "Y en el quinto piso: el laboratorio de prótesis, digitalización, el depósito de insumos, "
+             "auditoría, el SUM, y los baños y cambiadores.",
     "trabajo": "¿Cómo trabajamos? Con compromiso y calidad. Somos agentes de salud "
                "que actúan con respeto, coherencia y responsabilidad. "
                "Nuestro compromiso es con la palabra, el equipo y el paciente.",

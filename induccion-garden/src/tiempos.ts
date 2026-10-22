@@ -32,3 +32,10 @@ export const enPalabra = (k: Clave, texto: string, n = 0) => {
   if (!p) throw new Error(`No encuentro "${texto}" en la escena ${k}`);
   return LEAD + Math.round(p.ini * FPS);
 };
+
+// Frame de la primera palabra que empieza con `texto` dicha después del frame `tras`
+export const enPalabraTras = (k: Clave, texto: string, tras: number) => {
+  const p = VOZ[k].palabras.find((w) => LEAD + Math.round(w.ini * FPS) > tras && normalizar(w.t).startsWith(normalizar(texto)));
+  if (!p) throw new Error(`No encuentro "${texto}" en la escena ${k} después del frame ${tras}`);
+  return LEAD + Math.round(p.ini * FPS);
+};

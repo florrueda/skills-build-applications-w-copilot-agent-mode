@@ -9,7 +9,7 @@ import numpy as np
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 SR = 44100
-DURACION = 170
+DURACION = 240
 BPM = 100
 COMPAS = 60 / BPM * 4
 

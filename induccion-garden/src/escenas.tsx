@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
-import {Clave, enPalabra} from './tiempos';
+import {Clave, enPalabra, enPalabraTras} from './tiempos';
 import {B, C, Card, Chip, Corazon, Etiqueta, Foto, fontFamily, Logo, Pop, Sonrisa, Texto, Titulo, usePop} from './ui';
 
 // Zona de contenido: entre el logo superior y Sonri
@@ -442,13 +442,14 @@ const Numeros: React.FC = () => (
   </Zona>
 );
 
-const PISOS: {nombre: string; w: string; areas: string[]}[] = [
-  {nombre: 'PLANTA BAJA', w: 'planta', areas: ['Recepción', 'Diagnóstico', 'Guardia', 'Asesoría comercial', 'Baño accesible', 'Sala de radiografías periapicales']},
-  {nombre: 'PRIMER PISO', w: 'primer', areas: ['Depto. de Bioimágenes', 'Laboratorio de esterilización', 'Coordinación Ortodoncia']},
-  {nombre: 'SEGUNDO PISO', w: 'segundo', areas: ['Recepción', 'Operatoria Dental', 'Periodoncia', 'Ortodoncia y Ortopedia', 'Odontopediatría', 'Isla (asistentes)', 'Gerencia Clínica', 'Circulantes', 'Sala de radiografías periapicales']},
-  {nombre: 'TERCER PISO', w: 'tercero', areas: ['Recepción', 'Gerencia General', 'Gerencias: Operativa, Capital Humano y Finanzas', 'Central de Atención Telefónica (CAT)']},
-  {nombre: 'CUARTO PISO', w: 'cuarto', areas: ['Recepción', 'Prótesis', 'Implantes', 'Cirugía Bucal', 'Endodoncia', 'Isla (asistentes)', 'Sala de Escáner', 'Sala de radiografías periapicales']},
-  {nombre: 'QUINTO PISO', w: 'quinto', areas: ['Laboratorio de prótesis', 'Digitalización', 'Depósito de insumos', 'Auditoría', 'SUM', 'Baños y cambiadores']},
+// Cada área se muestra cuando Sonri la nombra (palabra clave de la locución)
+const PISOS: {nombre: string; w: string; areas: [string, string][]}[] = [
+  {nombre: 'PLANTA BAJA', w: 'planta', areas: [['Recepción', 'recepcion'], ['Diagnóstico', 'diagnostico'], ['Guardia', 'guardia'], ['Asesoría comercial', 'asesoria'], ['Baño para personas con discapacidad', 'bano'], ['Sala de radiografías periapicales', 'radiografias']]},
+  {nombre: 'PRIMER PISO', w: 'primer', areas: [['Depto. de Bioimágenes', 'departamento'], ['Laboratorio de esterilización', 'laboratorio'], ['Coordinación Ortodoncia', 'coordinacion']]},
+  {nombre: 'SEGUNDO PISO', w: 'segundo', areas: [['Recepción', 'recepcion'], ['Operatoria Dental', 'operatoria'], ['Periodoncia', 'periodoncia'], ['Ortodoncia y Ortopedia', 'ortodoncia'], ['Odontopediatría', 'odontopediatria'], ['Isla (asistentes)', 'isla'], ['Gerencia Clínica', 'gerencia'], ['Circulantes', 'circulantes'], ['Sala de radiografías periapicales', 'radiografias']]},
+  {nombre: 'TERCER PISO', w: 'tercero', areas: [['Recepción', 'recepcion'], ['Gerencia General', 'gerencia'], ['Gerencias: Operativa, Capital Humano y Finanzas', 'gerencias'], ['Central de Atención Telefónica (CAT)', 'central']]},
+  {nombre: 'CUARTO PISO', w: 'cuarto', areas: [['Recepción', 'recepcion'], ['Prótesis', 'protesis'], ['Implantes', 'implantes'], ['Cirugía Bucal', 'cirugia'], ['Endodoncia', 'endodoncia'], ['Isla (asistentes)', 'isla'], ['Sala de Escáner', 'escaner'], ['Sala de radiografías periapicales', 'radiografias']]},
+  {nombre: 'QUINTO PISO', w: 'quinto', areas: [['Laboratorio de prótesis', 'laboratorio'], ['Digitalización', 'digitalizacion'], ['Depósito de insumos', 'deposito'], ['Auditoría', 'auditoria'], ['SUM', 'sum'], ['Baños y cambiadores', 'banos']]},
 ];
 
 const Pisos: React.FC = () => {
@@ -457,6 +458,7 @@ const Pisos: React.FC = () => {
   const actual = Math.max(0, cambios.filter((c) => f >= c - 4).length - 1);
   const desdeCambio = f - cambios[actual];
   const piso = PISOS[actual];
+  const apariciones = piso.areas.reduce<number[]>((acc, [, w]) => [...acc, enPalabraTras('pisos', w, acc[acc.length - 1] ?? cambios[actual])], []);
   const altoPiso = 140;
   const ascensor = interpolate(f, cambios.flatMap((c) => [c - 4, c + 8]), cambios.flatMap((_, i) => [i === 0 ? 0 : i - 1, i]), {
     extrapolateLeft: 'clamp',
@@ -543,8 +545,8 @@ const Pisos: React.FC = () => {
               {piso.nombre}
             </Etiqueta>
             <div style={{marginTop: 26, display: 'flex', flexDirection: 'column', gap: 12}}>
-              {piso.areas.map((a, i) => {
-                const o = interpolate(desdeCambio, [i * 2, i * 2 + 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+              {piso.areas.map(([a], i) => {
+                const o = interpolate(f, [apariciones[i] - 3, apariciones[i] + 5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
                 return (
                   <div key={a + i} style={{fontFamily, fontSize: piso.areas.length > 7 ? 36 : 42, color: C.texto, opacity: o, transform: `translateX(${(1 - o) * 30}px)`, display: 'flex', gap: 14}}>
                     <span style={{color: C.oliva, fontWeight: 800}}>●</span>
