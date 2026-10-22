@@ -30,9 +30,8 @@ GUION = {
     "valores": "Y nuestros valores son: calidad, servicio, eficacia, confiabilidad, "
                "y sobre todo, calidez humana.",
     "especialidades": "Atendemos todas las especialidades: diagnóstico, guardia, endodoncia, "
-                      "ortodoncia, implantes, cirugía, odontopediatría, ¡y mucho más!",
-    "numeros": "Somos más de cincuenta profesionales y más de sesenta colaboradores, "
-               "en treinta y dos consultorios.",
+                      "ortodoncia, implantes, cirugía y odontopediatría.",
+    "numeros": "Somos más de cincuenta profesionales y más de sesenta colaboradores.",
     "pisos": "Hagamos un recorrido por el edificio. En planta baja están: recepción, diagnóstico, guardia, "
              "asesoría comercial, el baño para personas con discapacidad y la sala de radiografías periapicales. "
              "En el primer piso: el departamento de bioimágenes, el laboratorio de esterilización "
@@ -43,7 +42,7 @@ GUION = {
              "y la central de atención telefónica. "
              "En el cuarto: recepción, prótesis, implantes, cirugía bucal, endodoncia, la isla de asistentes, "
              "la sala de escáner y otra sala de radiografías periapicales. "
-             "Y en el quinto piso: el laboratorio de prótesis, digitalización, el depósito de insumos, "
+             "Y en el quinto piso: el laboratorio de prótesis, el depósito de insumos, "
              "auditoría, el SUM, y los baños y cambiadores.",
     "trabajo": "¿Cómo trabajamos? Con compromiso y calidad. Somos agentes de salud "
                "que actúan con respeto, coherencia y responsabilidad. "

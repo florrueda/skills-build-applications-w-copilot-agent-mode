@@ -82,7 +82,7 @@ const Quienes: React.FC = () => (
     </Pop>
     <div style={{position: 'relative', width: 980, height: 560}}>
       <Foto src="fachada.png" size={520} desde={4} style={{position: 'absolute', left: 30, top: 0}} />
-      <Foto src="edificio.png" size={380} desde={14} style={{position: 'absolute', right: 40, top: 170}} />
+      <Foto src="fachada28.png" size={380} desde={14} style={{position: 'absolute', right: 40, top: 170}} />
     </div>
     <Pop desde={enPalabra('quienes', 'completo')}>
       <Card style={{padding: '30px 44px'}}>
@@ -120,7 +120,7 @@ const Historia: React.FC = () => {
       </Pop>
       <div style={{position: 'relative', width: 980, flex: 1}}>
         <Foto
-          src="edificio.png"
+          src="fachada.png"
           size={400}
           alto={640}
           radio="200px 200px 60px 60px"
@@ -438,7 +438,6 @@ const Numeros: React.FC = () => (
     <Foto src="consultorio.png" size={420} desde={2} />
     <Contador hasta={50} prefijo="+" desde={enPalabra('numeros', 'cincuenta')} label="profesionales" color={C.verdeOscuro} />
     <Contador hasta={60} prefijo="+" desde={enPalabra('numeros', 'sesenta')} label="colaboradores" color={C.verde} />
-    <Contador hasta={32} desde={enPalabra('numeros', 'treinta')} label="consultorios" color={C.oliva} />
   </Zona>
 );
 
@@ -449,7 +448,7 @@ const PISOS: {nombre: string; w: string; areas: [string, string][]}[] = [
   {nombre: 'SEGUNDO PISO', w: 'segundo', areas: [['Recepción', 'recepcion'], ['Operatoria Dental', 'operatoria'], ['Periodoncia', 'periodoncia'], ['Ortodoncia y Ortopedia', 'ortodoncia'], ['Odontopediatría', 'odontopediatria'], ['Isla (asistentes)', 'isla'], ['Gerencia Clínica', 'gerencia'], ['Circulantes', 'circulantes'], ['Sala de radiografías periapicales', 'radiografias']]},
   {nombre: 'TERCER PISO', w: 'tercero', areas: [['Recepción', 'recepcion'], ['Gerencia General', 'gerencia'], ['Gerencias: Operativa, Capital Humano y Finanzas', 'gerencias'], ['Central de Atención Telefónica (CAT)', 'central']]},
   {nombre: 'CUARTO PISO', w: 'cuarto', areas: [['Recepción', 'recepcion'], ['Prótesis', 'protesis'], ['Implantes', 'implantes'], ['Cirugía Bucal', 'cirugia'], ['Endodoncia', 'endodoncia'], ['Isla (asistentes)', 'isla'], ['Sala de Escáner', 'escaner'], ['Sala de radiografías periapicales', 'radiografias']]},
-  {nombre: 'QUINTO PISO', w: 'quinto', areas: [['Laboratorio de prótesis', 'laboratorio'], ['Digitalización', 'digitalizacion'], ['Depósito de insumos', 'deposito'], ['Auditoría', 'auditoria'], ['SUM', 'sum'], ['Baños y cambiadores', 'banos']]},
+  {nombre: 'QUINTO PISO', w: 'quinto', areas: [['Laboratorio de prótesis', 'laboratorio'], ['Depósito de insumos', 'deposito'], ['Auditoría', 'auditoria'], ['SUM', 'sum'], ['Baños y cambiadores', 'banos']]},
 ];
 
 const Pisos: React.FC = () => {
