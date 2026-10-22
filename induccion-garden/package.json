@@ -1,0 +1,20 @@
+{
+  "name": "induccion-garden",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "voz": "python3 scripts/voz.py",
+    "render": "remotion render Induccion out/induccion-garden.mp4 --codec h264 --crf 26",
+    "musica": "python3 scripts/musica.py && ffmpeg -y -i public/musica.wav -b:a 96k public/musica.mp3 && rm public/musica.wav"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.250",
+    "@remotion/fonts": "^4.0.250",
+    "@remotion/media-utils": "^4.0.250",
+    "@types/react": "^18.3.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250",
+    "typescript": "^5.6.3"
+  }
+}
