@@ -33,7 +33,7 @@ GUION = {
                       "ortodoncia, implantes, cirugía y odontopediatría.",
     "numeros": "Somos más de cincuenta profesionales y más de sesenta colaboradores.",
     "pisos": "Hagamos un recorrido por el edificio. En planta baja están: recepción, diagnóstico, guardia, "
-             "asesoría comercial, el baño para personas con discapacidad y la sala de radiografías periapicales. "
+             "asesores de plan de tratamiento, el baño para personas con discapacidad y la sala de radiografías periapicales. "
              "En el primer piso: el departamento de bioimágenes, el laboratorio de esterilización "
              "y la coordinación de ortodoncia. "
              "En el segundo: recepción, operatoria dental, periodoncia, ortodoncia y ortopedia, odontopediatría, "

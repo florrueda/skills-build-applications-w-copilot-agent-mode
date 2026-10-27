@@ -444,7 +444,7 @@ const Numeros: React.FC = () => (
 
 // Cada área se muestra cuando Sonri la nombra (palabra clave de la locución)
 const PISOS: {nombre: string; w: string; areas: [string, string][]}[] = [
-  {nombre: 'PLANTA BAJA', w: 'planta', areas: [['Recepción', 'recepcion'], ['Diagnóstico', 'diagnostico'], ['Guardia', 'guardia'], ['Asesoría comercial', 'asesoria'], ['Baño para personas con discapacidad', 'bano'], ['Sala de radiografías periapicales', 'radiografias']]},
+  {nombre: 'PLANTA BAJA', w: 'planta', areas: [['Recepción', 'recepcion'], ['Diagnóstico', 'diagnostico'], ['Guardia', 'guardia'], ['Asesores de plan de tratamiento', 'asesores'], ['Baño para personas con discapacidad', 'bano'], ['Sala de radiografías periapicales', 'radiografias']]},
   {nombre: 'PRIMER PISO', w: 'primer', areas: [['Depto. de Bioimágenes', 'departamento'], ['Laboratorio de esterilización', 'laboratorio'], ['Coordinación Ortodoncia', 'coordinacion']]},
   {nombre: 'SEGUNDO PISO', w: 'segundo', areas: [['Recepción', 'recepcion'], ['Operatoria Dental', 'operatoria'], ['Periodoncia', 'periodoncia'], ['Ortodoncia y Ortopedia', 'ortodoncia'], ['Odontopediatría', 'odontopediatria'], ['Isla (asistentes)', 'isla'], ['Gerencia Clínica', 'gerencia'], ['Circulantes', 'circulantes'], ['Sala de radiografías periapicales', 'radiografias']]},
   {nombre: 'TERCER PISO', w: 'tercero', areas: [['Recepción', 'recepcion'], ['Gerencia General', 'gerencia'], ['Gerencias: Operativa, Capital Humano y Finanzas', 'gerencias'], ['Central de Atención Telefónica (CAT)', 'central']]},
