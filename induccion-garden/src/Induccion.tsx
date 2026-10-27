@@ -1,8 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {ESCENAS_UI} from './escenas';
-import {Sonri} from './Sonri';
-import {COLA, duracion, ESCENAS, FPS, INICIOS, LEAD, Palabra, TOTAL, VOZ} from './tiempos';
+import {duracion, ESCENAS, INICIOS, LEAD, TOTAL} from './tiempos';
 import {C, fontFamily, Logo} from './ui';
 
 const Fondo: React.FC = () => {
@@ -51,92 +50,6 @@ const Escena: React.FC<{dur: number; children: React.ReactNode}> = ({dur, childr
   );
 };
 
-// Agrupa palabras en frases cortas para el globo de diálogo
-const frases = (palabras: Palabra[]) => {
-  const grupos: Palabra[][] = [];
-  let actual: Palabra[] = [];
-  palabras.forEach((p, i) => {
-    const pausa = i > 0 ? p.ini - palabras[i - 1].fin : 0;
-    const largo = actual.map((w) => w.t).join(' ').length;
-    if (actual.length && (pausa > 0.3 || largo + p.t.length > 34)) {
-      grupos.push(actual);
-      actual = [];
-    }
-    actual.push(p);
-  });
-  if (actual.length) grupos.push(actual);
-  return grupos;
-};
-const FRASES = Object.fromEntries(ESCENAS.map((k) => [k, frases(VOZ[k].palabras)]));
-
-const Narrador: React.FC = () => {
-  const f = useCurrentFrame();
-  const k = [...ESCENAS].reverse().find((e) => f >= INICIOS[e]) ?? 'intro';
-  const t = (f - INICIOS[k] - LEAD) / FPS;
-  const palabras = VOZ[k].palabras;
-  const hablando = palabras.find((p) => t >= p.ini && t <= p.fin + 0.04);
-  const boca = hablando ? 0.35 + 0.65 * Math.abs(Math.sin(t * 22)) : 0;
-
-  const grupos = FRASES[k];
-  const idx = grupos.findIndex((g, i) => t < (grupos[i + 1]?.[0].ini ?? Infinity) - 0.05);
-  const grupo = t >= (grupos[0]?.[0].ini ?? 0) - 0.15 && t <= VOZ[k].duracion + 0.3 ? grupos[idx] : undefined;
-
-  const local = f - INICIOS[k];
-  const aparece = interpolate(local, [0, 10, duracion(k) - COLA + 6, duracion(k)], [0, 1, 1, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-
-  return (
-    <AbsoluteFill>
-      <div style={{position: 'absolute', left: 20, top: 1440}}>
-        <Sonri size={340} boca={boca} saludando={k === 'intro' || k === 'cierre'} />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: 380,
-          right: 36,
-          top: 1520,
-          minHeight: 230,
-          background: 'white',
-          borderRadius: 48,
-          padding: '30px 38px',
-          boxShadow: '0 14px 40px rgba(0,60,30,0.2)',
-          display: 'flex',
-          alignItems: 'center',
-          opacity: grupo ? aparece : 0,
-          transform: `scale(${0.9 + 0.1 * aparece})`,
-          transformOrigin: 'left center',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            left: -26,
-            top: 90,
-            width: 0,
-            height: 0,
-            borderTop: '22px solid transparent',
-            borderBottom: '22px solid transparent',
-            borderRight: '34px solid white',
-          }}
-        />
-        <div style={{fontFamily, fontSize: 50, lineHeight: 1.25, color: C.texto, fontWeight: 500}}>
-          {grupo?.map((p, i) => {
-            const dicha = t >= p.ini;
-            return (
-              <span key={i} style={{color: dicha ? C.verdeOscuro : '#9AA59E', fontWeight: dicha ? 700 : 500}}>
-                {p.t}{' '}
-              </span>
-            );
-          })}
-        </div>
-      </div>
-    </AbsoluteFill>
-  );
-};
-
 export const Induccion: React.FC = () => {
   const f = useCurrentFrame();
   return (
@@ -171,7 +84,6 @@ export const Induccion: React.FC = () => {
       >
         <Logo ancho={260} />
       </div>
-      <Narrador />
     </AbsoluteFill>
   );
 };
